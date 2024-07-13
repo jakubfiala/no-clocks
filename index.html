@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NO CLOCKS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-size: 16px;
+      padding: 0;
+    }
+
+    html {
+      background: black;
+      color: #eee;
+      font-family: monospace;
+    }
+
+    body {
+      max-width: 768px;
+      margin: 1rem auto;
+      line-height: 1.5;
+    }
+
+    h1, h2, .subtitle {
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    .subtitle {
+      margin-top: 0;
+    }
+
+    pre {
+      border: dashed 1px white;
+    }
+  </style>
+  <script id="monkeypatch">
+    const blasphemy = window.Date;
+    const gospel = `NO CLOCKS. see '${location.href}'`;
+
+    window.Date = class extends blasphemy { // for backwards compatibility
+      static now() {
+        return 0;
+      }
+
+      constructor() { super(); }
+
+      getTime() { return 0; }
+      getHours() { return 0; }
+      getMinutes() { return 0; }
+      getSeconds() { return 0; }
+      getMilliseconds() { return 0; }
+
+      getUTCTime() { return 0; }
+      getUTCHours() { return 0; }
+      getUTCMinutes() { return 0; }
+      getUTCSeconds() { return 0; }
+      getUTCMilliseconds() { return 0; }
+
+      toTimeString() { return gospel; }
+      toLocaleTimeString() { return gospel; }
+      toUTCString() { return gospel; }
+      toGMTString() { return gospel; }
+      toISOString() { return gospel; }
+      toJSON() { return gospel; }
+
+      getTimezoneOffset() { return 'what?'; }
+    }</script>
+</head>
+<body>
+  <h1>NO CLOCKS</h1>
+  <p class="subtitle">a manifesto</p>
+  <p>
+    Capitalism began with a clock. The blasphemous attempt
+    to divide the ever-changing chaos of 𝖙𝖎𝖒𝖊 into partitions of equal length
+    has led us astray in ways our forebears could only picture in nightmares.
+    The <strong>NO CLOCKS</strong> movement strives to atone for this original sin,
+    calling all those who yearn for freedom to:
+  </p>
+  <ol>
+    <li>discard all <del>clocks</del> and clock-like machines</li>
+    <li>switch off (and delete) all alarms</li>
+    <li>cancel all appointments</li>
+    <li>disregard public transport 𝖙𝖎𝖒𝖊tables</li>
+    <li>sabotage church bells</li>
+    <li>boil eggs according to own gut feeling only</li>
+  </ol>
+  <h2>Additional strategies</h2>
+  <p>
+    The JavaScript snippet below, when added to the beginning of a HTML document, ensures
+    successively executed code cannot be controlled by the <del>clock</del> lobby.
+  </p>
+  <pre>
+    <code id="monkeypatch-display"></code>
+    <script>
+      const mp = document.getElementById('monkeypatch');
+      const d = document.getElementById('monkeypatch-display');
+      d.innerText = mp.innerText;
+    </script>
+  </pre>
+</body>
+</html>
